@@ -1,0 +1,27 @@
+.country-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 250px;
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding: 30px 10px;
+    margin: 10px 10px;
+
+    img {
+        object-fit:contain;
+        max-height: 120px;
+    }
+
+    h4 {
+        margin: 10px 0px;
+        font-size: 25px;
+    }
+
+    p {
+        margin: 5px 0px;
+    }
+
+}

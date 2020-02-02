@@ -1,0 +1,31 @@
+.countries {
+    max-width: 990px;
+    width: calc(100% - 40px);
+    background-color: palevioletred;
+
+    padding: 20px 10px;
+    margin: 10px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__country-list {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        .button--load{
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right:0;
+            bottom: 0;
+        }
+    }    
+}
