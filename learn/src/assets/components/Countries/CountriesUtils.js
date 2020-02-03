@@ -19,7 +19,47 @@ function loadMoreCountries(context) {
     }))
 }
 
+function sortAlphabetically(context) {
+    context.setState( (state) => {
+        let sortedList = [...state.allCountries]
+        if(!state.countriesSortedAlph){
+            sortedList.sort( function(a,b){ return a.name > b.name ? 1 : -1 } )
+        }else{
+            sortedList.sort( function(a,b){ return b.name > a.name ? 1 : -1 } )
+        }
+
+        return {
+            allCountries: sortedList,
+            countriesSortedAlph: !state.countriesSortedAlph,
+            visibleCountries: sortedList.slice(0, state.countriesVisibleOnLoad),
+            countriesNum: undefined
+        }
+
+    })
+}
+
+function sortNumerically(context) {
+    context.setState( (state) => {
+        let sortedList = [...state.allCountries]
+        if(state.countriesNum){
+            sortedList.sort( function(a,b){ return a.population - b.population} )
+        }else{
+            sortedList.sort( function(a,b){ return b.population - a.population} )
+        }
+
+        return {
+            allCountries: sortedList,
+            visibleCountries: sortedList.slice(0, state.countriesVisibleOnLoad),
+            countriesNum: !state.countriesNum,
+            countriesSortedAlph: undefined
+        }
+
+    })
+}
+
 export {
     _initCountries,
-    loadMoreCountries
+    loadMoreCountries,
+    sortAlphabetically,
+    sortNumerically
 }
